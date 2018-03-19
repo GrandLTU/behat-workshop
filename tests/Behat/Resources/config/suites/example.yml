@@ -1,0 +1,13 @@
+default:
+    suites: &suites
+        example:
+            contexts:
+                - Tests\Behat\Context\ExampleContext: ~
+
+javascript:
+    suites:
+        <<: *suites
+
+no_js:
+    suites:
+        <<: *suites
