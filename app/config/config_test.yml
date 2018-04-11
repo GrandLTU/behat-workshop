@@ -22,3 +22,7 @@ security:
             guard:
                 authenticators:
                     - Tests\TestBasicAuthenticator
+
+doctrine:
+    dbal:
+        path: '%kernel.project_dir%/var/data/test.sqlite'

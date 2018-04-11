@@ -3,6 +3,7 @@ default:
         example:
             contexts:
                 - Tests\Behat\Context\ExampleContext: ~
+                - Tests\Behat\Context\FixtureContext: ~
 
 javascript:
     suites:

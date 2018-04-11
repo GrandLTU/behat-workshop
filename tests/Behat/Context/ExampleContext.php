@@ -29,14 +29,4 @@ class ExampleContext extends MinkContext implements KernelAwareContext
     {
         $this->kernel = $kernel;
     }
-
-    /**
-     * @Given /^I am logged in as "([^"]*)"$/
-     *
-     * @param string $username
-     */
-    public function iAmLoggedInAs(string $username): void
-    {
-        $this->getSession()->setBasicAuth($username);
-    }
 }
