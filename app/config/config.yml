@@ -3,6 +3,9 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@PlatformAdminBundle/Resources/config/app/config.yml" }
+    - { resource: "resources/" }
+    - { resource: "workflows/" }
+    - { resource: "grids/" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration

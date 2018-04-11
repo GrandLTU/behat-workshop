@@ -3,6 +3,6 @@ Feature: Homepage
   As a user
   I need to be able to see homepage
 
-  Scenario: Open homepage without javascript
+  Scenario: Open homepage
     When I am on the homepage
     Then I should see "Welcome to Symfony"

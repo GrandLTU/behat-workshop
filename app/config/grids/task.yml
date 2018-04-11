@@ -1,0 +1,45 @@
+sylius_grid:
+    grids:
+        task:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%app.model.task.class%"
+            fields:
+                status:
+                    type: string
+                    label: Status
+                    sortable: ~
+                title:
+                    type: string
+                    label: Title
+                    sortable: ~
+                timeSpent:
+                    type: string
+                    label: Time spent
+                    sortable: ~
+                commentNeeded:
+                    type: twig
+                    label: Comment needed
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/YesNo.html.twig"
+                comment:
+                    type: string
+                    label: Comment
+                    sortable: ~
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [title]
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

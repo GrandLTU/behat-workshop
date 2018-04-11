@@ -4,12 +4,16 @@ Admin platform
 Installation
 ------------
 
+`./install.sh`
+
+Or
+
 `composer install`
 `npm i`
 `gulp`
 `bin/console doc:d:c`
 `bin/console doc:s:c`
-`bin/console admin-platform:install:setup`
+`bin/console admin-platform:install:setup -n`
 
 Behat
 -----

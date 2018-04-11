@@ -5,3 +5,14 @@ app:
 platform_admin:
     resource: "@PlatformAdminBundle/Resources/config/routing.xml"
     prefix:   /admin
+
+
+app_task:
+    resource: |
+        alias: app.task
+        templates: PlatformAdminBundle:Crud
+        grid: task
+        except: ['show']
+        redirect: update
+    type: sylius.resource
+    prefix:   /admin

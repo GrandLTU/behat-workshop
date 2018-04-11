@@ -1,0 +1,7 @@
+sylius_resource:
+    resources:
+        app.task:
+            classes:
+                model: AppBundle\Entity\Task
+                repository: AppBundle\Repository\TaskRepository
+                form: AppBundle\Form\Type\TaskType

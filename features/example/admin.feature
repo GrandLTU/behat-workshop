@@ -9,7 +9,7 @@ Feature: Homepage
     And the response status code should be 200
 
   Scenario: Open admin page logged in
-    Given I am logged in as "admin@example.com"
+    Given I am logged in as "admin-platform@example.com"
     When I go to "/admin/"
     Then I should be on "/admin/"
     And the response status code should be 200

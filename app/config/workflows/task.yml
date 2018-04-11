@@ -1,0 +1,48 @@
+framework:
+    workflows:
+        task_status:
+            type: 'state_machine'
+            marking_store:
+                type: 'single_state'
+                arguments:
+                    - 'status'
+            supports:
+                - AppBundle\Entity\Task
+            places:
+                - new
+                - todo
+                - in_progress
+                - waiting_for_approval
+                - waiting_for_comment
+                - resolved
+                - closed
+            transitions:
+                close:
+                    from: [todo, in_progress, waiting_for_approval]
+                    to: closed
+                create:
+                    from: new
+                    to: todo
+                start:
+                    from: todo
+                    to: in_progress
+                stop:
+                    from: in_progress
+                    to: todo
+                finish:
+                    from: [todo, in_progress]
+                    to: waiting_for_approval
+                approve_without_comment:
+                    from: waiting_for_approval
+                    to: resolved
+                    guard: not subject.isCommentNeeded()
+                approve:
+                    from: waiting_for_approval
+                    to: waiting_for_comment
+                    guard: subject.isCommentNeeded()
+                receive_comment:
+                    from: waiting_for_comment
+                    to: resolved
+                reject:
+                    from: waiting_for_approval
+                    to: todo
