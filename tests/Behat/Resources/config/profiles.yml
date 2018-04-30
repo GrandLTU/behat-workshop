@@ -1,4 +1,4 @@
 imports:
     - profiles/default.yml
-    - profiles/javascript.yml
+    - profiles/chrome.yml
     - profiles/no_js.yml

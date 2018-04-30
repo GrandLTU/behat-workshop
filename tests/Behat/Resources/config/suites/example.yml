@@ -4,11 +4,3 @@ default:
             contexts:
                 - Tests\Behat\Context\ExampleContext: ~
                 - Tests\Behat\Context\FixtureContext: ~
-
-javascript:
-    suites:
-        <<: *suites
-
-no_js:
-    suites:
-        <<: *suites

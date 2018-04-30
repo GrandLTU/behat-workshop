@@ -22,7 +22,7 @@ final class TestBasicAuthenticator extends AbstractGuardAuthenticator
      */
     public function supports(Request $request): bool
     {
-        return $request->headers->has('PHP_AUTH_USER');
+        return $request->headers->has('PHP_AUTH_USER') || $request->cookies->has('test_auth');
     }
 
     /**
@@ -30,7 +30,9 @@ final class TestBasicAuthenticator extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
-        return $request->headers->get('PHP_AUTH_USER');
+        return $request->headers->has('PHP_AUTH_USER')
+            ? $request->headers->get('PHP_AUTH_USER')
+            : $request->cookies->get('test_auth');
     }
 
     /**

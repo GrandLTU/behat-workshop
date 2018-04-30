@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Behat\Context;
 
+use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
@@ -99,7 +100,12 @@ class FixtureContext extends RawMinkContext implements KernelAwareContext
      */
     public function iLoginAsUser(string $name): void
     {
-        $this->getSession()->setBasicAuth($name);
+        try {
+            $this->getSession()->setBasicAuth($name);
+        } catch (UnsupportedDriverActionException $e) {
+            $this->visitPath('/');
+            $this->getSession()->setCookie('test_auth', $name);
+        }
     }
 
     /**
