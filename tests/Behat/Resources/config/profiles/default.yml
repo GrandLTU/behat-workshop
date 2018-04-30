@@ -1,7 +1,7 @@
 default:
     extensions:
         Behat\MinkExtension:
-            base_url: http://web:8000
+            base_url: http://dev:8000
             browser_name: chrome
             default_session: symfony
             javascript_session: chrome
