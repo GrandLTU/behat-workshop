@@ -21,3 +21,5 @@ setPerms "${PROJECT_ROOT}/var/logs"
 setPerms "${PROJECT_ROOT}/var/sessions"
 
 ./install.sh
+
+setPerms "${PROJECT_ROOT}/var/data"
