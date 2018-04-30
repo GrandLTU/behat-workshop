@@ -15,6 +15,9 @@ function setPerms {
 }
 
 echo -e '\n## Setting up permissions ... '
-setPerms "${PROJECT_ROOT}/var"
+setPerms "${PROJECT_ROOT}/var/data"
+setPerms "${PROJECT_ROOT}/var/cache"
+setPerms "${PROJECT_ROOT}/var/logs"
+setPerms "${PROJECT_ROOT}/var/sessions"
 
 ./install.sh
