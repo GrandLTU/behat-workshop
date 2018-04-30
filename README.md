@@ -10,10 +10,16 @@ Or
 
 `composer install`
 `npm i`
-`gulp`
+`npm run gulp`
 `bin/console doc:d:c`
 `bin/console doc:s:c`
 `bin/console admin-platform:install:setup -n`
+
+Credentials
+-----------
+
+Username: *admin-platform@example.com*
+Password: *admin-platform*
 
 Behat
 -----
