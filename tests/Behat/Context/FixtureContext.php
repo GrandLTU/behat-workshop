@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Behat\Context;
 
+use AppBundle\Entity\Task;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
@@ -174,5 +176,21 @@ class FixtureContext extends RawMinkContext implements KernelAwareContext
     private function getManager(): EntityManager
     {
         return $this->kernel->getContainer()->get('doctrine.orm.default_entity_manager');
+    }
+
+    /**
+     * @Given /^Task "([^"]*)"with required comment and status "([^"]*)"$/
+     */
+    public function taskWithRequiredCommentAndStatus(string $title, string $status)
+    {
+        $task = new Task();
+        $task->setStatus($status);
+        $task->setCommentNeeded(true);
+        $task->setTimeSpent(0);
+        $task->setTitle($title);
+
+        $manager = $this->getManager();
+        $manager->persist($task);
+        $manager->flush();
     }
 }

@@ -23,7 +23,7 @@ sylius_grid:
                     label: Comment needed
                     sortable: ~
                     options:
-                        template: "@SyliusUi/Grid/Field/YesNo.html.twig"
+                        template: "@SyliusUi/Grid/Field/yesNo.html.twig"
                 comment:
                     type: string
                     label: Comment
